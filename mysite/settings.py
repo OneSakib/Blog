@@ -132,3 +132,4 @@ EMAIL_HOST_PASSWORD = 'Govind@123'
 "django_heroku.settings(locals())" 
 
 STATIC_ROOT=BASE_DIR / 'static'
+CSRF_TRUSTED_ORIGINS = ["https://blogsakib.herokuapp.com"]
