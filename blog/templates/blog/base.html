@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static 'Bootstrap/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% block css %}{% endblock %}
+</head>
+<body>
+<!--side bar-->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="{% url 'blog:post_list' %}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline " style="margin-left: 30px">My Blogs</span>
+                </a>
+                    <p style="margin-left: 30px">Top Blogs</p>
+                <ul class="nav nav-pills flex-column mb-sm-auto  align-items-sm-start" id="menu" >
+                    {% for post in toppost %}
+                    <li class="nav-item">
+                        <a href="{{post.get_absolute_url }}" class="nav-link align-middle ">
+                            <i class="fs-6 "></i> <span class="ms-1 d-none d-sm-inline">{{post.title}}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="col py-3" id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="{% static 'Bootstrap/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'Bootstrap/jquery/jquery-3.6.0.js' %}"></script>
+
+
+</html>

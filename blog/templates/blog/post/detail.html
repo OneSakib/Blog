@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text text-primary text-center p-3" style="background: RGB(245, 204, 238)">{{post.title}}</h1>
+    <p class="text-danger fs-5">
+        Published<b class="text-danger">{{post.publish}}</b> by <b><i
+            class="text-primary">{{post.author|title}}</i></b>
+    </p>
+    <p class="fs-4">{{post.body|linebreaks}}</p>
+    <!--    Share button-->
+    <p>
+        <a href="{% url 'blog:post_share' post.id %}" class="nav-link">
+           <span class="material-icons-outlined">
+            <i class="fa fa-share-alt"></i> Share this post
+            </span>
+        </a>
+    </p>
+    <!--    Comments-->
+    <div class="container">
+        <h3 class="text-center text-primary p-2 " , style="background: RGB(245, 204, 238)">Comments</h3>
+        {% with comments.count as total_comment %}
+        <h5>
+            {{total_comment}} Comment'{{total_comment|pluralize}}
+        </h5>
+        {% endwith %}
+        {% for comment in comments %}
+        <div class="cm-comment p-3 text-dark" style="background: RGB(217, 255, 179);border-radius: 10px">
+            <p class="info">
+                Comment <b>{{forloop.counter}} </b>by <b>{{comment.name}}
+                {{comment.created}}</b>
+            </p>
+            <h4>{{comment.body|linebreaks}}</h4>
+        </div>
+        {% empty %}
+        <p>There is no Comment in this Post </p>
+        {% endfor %}
+        {% if new_comment %}
+        <h2>Your Comment has been added. </h2>
+        {% else %}
+        <h4>Add New Comment </h4>
+        <form class="form-control" method="post" action="" novalidate>
+            {% csrf_token %}
+            {% for field in comment_form %}
+            {{ field.label_tag }} {{ field }}{{ field.errors }}
+            {% endfor %}
+            <input value="Comment" type="submit" class="btn btn-success mt-2">
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

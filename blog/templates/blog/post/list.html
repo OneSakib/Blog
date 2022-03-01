@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block title %} My Blog {% endblock%}
+
+{% block content %}
+<div class="container">
+    <h1 class="text text-center text-primary p-3" style="background: RGB(245, 204, 238)">My Blogs</h1>
+    {% for post in posts %}
+    <h2><a href="{{post.get_absolute_url }}" class="page-link">{{post.title}}</a></h2>
+    <p class="fs-5">
+        Published <b>{{post.publish}}</b> by <b>{{post.author|title}}</b>
+    </p>
+    <p class="fs-3">
+        {{post.body|truncatewords:30|linebreaks}}
+    </p>
+    {% endfor %}
+    {% include 'pagination.html' with page=page_obj %}
+</div>
+
+{% endblock %}

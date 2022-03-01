@@ -1,0 +1,10 @@
+ <!-- Bootstrap CSS -->
+    <link href="{% static 'blog/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static 'blog/Bootstrap/css/style.css' %}" rel="stylesheet" >
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="{% static 'blog/Bootstrap/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'blog/Bootstrap/jquery/jquery-3.6.0.js' %}" ></script>
+
