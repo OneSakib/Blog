@@ -127,3 +127,5 @@ EMAIL_USE_SSL = False
 
 
 EMAIL_HOST_PASSWORD = 'Govind@123'
+"import django_heroku" 
+"django_heroku.settings(locals())" 
