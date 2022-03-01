@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["https://blogsakib.herokuapp.com/","localhost"]
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -130,4 +131,4 @@ EMAIL_HOST_PASSWORD = 'Govind@123'
 "import django_heroku" 
 "django_heroku.settings(locals())" 
 
-STATIC_ROOT=BASE_DIR/'static'
+STATIC_ROOT=BASE_DIR / 'static'
