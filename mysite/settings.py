@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY='o=umo_$)69z-m3hu1c!10+j&-wd)x(sz)bqqco8zoqb!+=k=oe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["blogsakib.herokuapp.com","localhost"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -129,8 +129,8 @@ EMAIL_USE_SSL = False
 
 
 EMAIL_HOST_PASSWORD = 'Govind@123'
-"import django_heroku" 
-"django_heroku.settings(locals())" 
+# "import django_heroku" 
+# "django_heroku.settings(locals())" 
 
 # STATIC_ROOT=BASE_DIR / 'static'
 # CSRF_TRUSTED_ORIGINS = ["https://blogsakib.herokuapp.com/"]
