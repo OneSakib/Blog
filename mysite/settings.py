@@ -19,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY='o=umo_$)69z-m3hu1c!10+j&-wd)x(sz)bqqco8zoqb!+=k=oe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -131,5 +132,5 @@ EMAIL_HOST_PASSWORD = 'Govind@123'
 "import django_heroku" 
 "django_heroku.settings(locals())" 
 
-STATIC_ROOT=BASE_DIR / 'static'
-CSRF_TRUSTED_ORIGINS = ["https://blogsakib.herokuapp.com"]
+# STATIC_ROOT=BASE_DIR / 'static'
+# CSRF_TRUSTED_ORIGINS = ["https://blogsakib.herokuapp.com/"]
